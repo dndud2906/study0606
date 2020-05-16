@@ -1,0 +1,26 @@
+1. 형제( same depth )끼리는 데이터를 주고 받을 수 없음
+
+2. 항상 데이터는 아래로 흘러야함.
+
+스터디에서 Redux와 같은거 안쓰고 -> Hook + Context API사용(useReducer)
+
+해체할당자 중요 및 많이씀
+->
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
+-----
+
+import export
+
+export Box -> object형식으로 export하는 방식, 받을 때 import {Box} from ~
+
+export default Box -> 해당 컴포넌트를 export하는 방식, 받을 때 import Box from ~
+
+----
+
+import { useState } from 'react' -> Hook 사용하기위한 import구문
+
+useState사용법
+->
+const [color, setColor] = useState('yellow')   <- 위에 쓴 해체할당자형식
+// useState는 배열형식으로 받는다. color='yellow' , setColor는 color를 바꾸는 함수
