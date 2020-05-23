@@ -1,4 +1,12 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
+
+const YellowBox = styled.div`
+  width: 100px;
+  height: 100px;
+  border: 1px solid #efefef;
+  background-color: yellow;
+`
 
 function Box() {
   const [color, setColor] = useState('yellow') //useState(배열형식으로 받는다) color = yellow , setColor(color 바꾸는 함수)
@@ -23,6 +31,7 @@ function Box() {
 
   return (
     <div>
+      <YellowBox />
       <input placeholder="색상 값을 입력해주세요" onChange={handleColor} />
       <br />
       <input placeholder="가로 길이를 입력해주세요." onChange={handleWidth} />

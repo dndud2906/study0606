@@ -24,3 +24,92 @@ useState사용법
 ->
 const [color, setColor] = useState('yellow')   <- 위에 쓴 해체할당자형식
 // useState는 배열형식으로 받는다. color='yellow' , setColor는 color를 바꾸는 함수
+
+state = 나의 값
+props = 누군가가 나에게 주는 값
+
+--------------------------------------------------------------------------5월 16일 내용
+
+
+npm i -S styled-components << 많이 쓰는 styled-components 이다.
+->import styled form 'styled-components'
+
+const YellowBox = styled.div`
+  width: 100px;
+  height: 100px;
+  border: 1px solid #efefef;
+  background-color: yellow;
+` --> 이러한 형태로 div에 style 선언.
+
+
+container 사용법 배우는 날 --> components/shared/container/index
+Box 컴포넌트를 빼고 header, body, footer components 정의 및 사용
+
+export default styled.div`
+  box-sizing: border-box;
+  ${({ maxWidth }) => maxWidth && `max-width: ${maxWidth}px;`}
+  ${({ centered }) => centered && `margin: 0 auto;`}
+  ${({ margin }) => margin && `margin: ${margin};`}
+  ${({ padding }) => padding && `padding: ${padding};`}
+  ${({ width }) => width && `width: ${width || '100%'};`}
+`
+--> components/shared/container에서 styled-components로 div를 export 한 구문이다.
+    만들어진 컴포넌트(Container)에서 props(maxWidth, centered, margin, padding, width)를 받으면 &&연산자(props가 있다면)
+    뒤에 구문 실행(centered 구문을 margin 위로 작성해야함 ?-> margin이 위에있다면 잘못하면 centered 구문으로 덮힐수가 있음)
+
+
+
+
+pages/signup에서
+
+const [users, setUsers] = useState([
+    { name: '가', password: '1234' },
+    { name: '나', password: '1234' },
+    { name: '다', password: '1234' },
+  ])
+
+--> 이 구문은 회원가입한 users 정보를 body, footer에서 받아 사용해야 하는데 
+    body 컴포넌트에서 state로 받아 사용한다면 형제 컴포넌트인 footer에서는 사용이 불가능 하기 때문에
+    상단 컴포넌트인 pages/signup 컴포넌트에서 useState(hook)으로 유저의 정보를 관리한다.
+
+
+
+
+import PropTypes from 'prop-types'
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+}
+--> PropTypes란 props를 받는데 그 props라는 변수타입을 정하는 기능이다.(여기서 title이라는 props의 타입은 string)
+
+
+function Header({ title = '기본 타이틀' }) {
+  return <div>{title || '기본 타이틀'}</div>
+} 
+--> title = '기본 타이틀' 또는 title || '기본 타이틀' 은 props로 title이 정해져있지 않는다면 기본으로 '기본 타이틀'이라고 됨.
+
+
+
+components/shared/text
+-->COLORS[color]는 유동적으로 color라는 props를 받기위해 쓰는 형식 COLORS.color(x)
+
+
+
+components/signup/form(body에 쓰일)
+input에서 이름,비밀번호,재입력 에 name 값을 준 이유 --> 함수 하나로 통제
+
+
+Object를 배열로 바꾸는 법 -> Object.values(obj) value를 배열로 따로 뺌.
+
+every 함수 하나라도 false면  false가 return 됨 
+'' --> 공백은 false 값
+
+
+useEffect(hook) --> 변화를 계속 감지하는 역할.
+
+useEffect(() => {
+    formValidator()
+  }, [values]) //eslint-disable-line react-hooks/exhaustive-deps
+--> [values]의 값에 변화가 있을때마다 formValidator함수를 실행시키겠다.
+
+------------------------------------------------------------- 5월 23일 내용.
