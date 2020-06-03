@@ -11,5 +11,8 @@ export default styled.div`
   ${({ centered }) => centered && `margin: 0 auto;`}
   ${({ margin }) => margin && `margin: ${margin};`}
   ${({ padding }) => padding && `padding: ${padding};`}
-  ${({ width }) => width && `width: ${width || '100%'}px;`}
+  ${({ width }) => width && `width: ${width || '100%'};`}
+  ${({ flex }) => flex && `display:flex;`}
+  ${({ between }) => between && `justify-content: space-between;`}
+  ${({ column }) => column && `flex-direction: column;`}
 `
