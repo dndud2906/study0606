@@ -63,38 +63,39 @@ const items = [
   },
 ]
 
-function ItemList({ cnt }) {
-  console.log(cnt)
-  return items.map(({ id, img, title, content }, idx) => {
-    if (Math.floor(id / 3) === cnt) {
-      return (
-        <Container flex margin="0 0 20px 0" key={idx}>
-          <Img src={img} alt={title} />
-          <Container flex column padding="10px 0 0 25px">
-            <Text size="18" bold margin="0 0 10px 0">
-              {title}
+function ItemList({ drawPage }) {
+  return items
+    .map(({ img, title, content }, idx) => (
+      <Container flex margin="0 0 20px 0" key={idx}>
+        <Img src={img} alt={title} />
+        <Container flex column padding="10px 0 0 25px">
+          <Text size="18" bold margin="0 0 10px 0">
+            {title}
+          </Text>
+          {content.split(',').map((text, idx) => (
+            <Text size="18" margin="0 0 8px 0" key={idx}>
+              {text}
             </Text>
-            {content.split(',').map((text, idx) => (
-              <Text size="18" margin="0 0 8px 0" key={idx}>
-                {text}
-              </Text>
-            ))}
-          </Container>
+          ))}
         </Container>
-      )
-    }
-  })
+      </Container>
+    ))
+    .slice(drawPage, drawPage + 3)
 }
 
 function PracticePage() {
-  const [cnt, setCnt] = useState(0)
+  const [drawPage, setDrawPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
 
   const handleNext = () => {
-    setCnt(cnt + 1)
+    setDrawPage(drawPage + 3)
+    setCurrentPage(currentPage + 1)
   }
   const handlePrev = () => {
-    setCnt(cnt - 1)
+    setDrawPage(drawPage - 3)
+    setCurrentPage(currentPage - 1)
   }
+  const maxPage = Math.ceil(items.length / 3)
   return (
     <Container>
       <Container margin="0 0 10px 0" flex between>
@@ -103,12 +104,12 @@ function PracticePage() {
         </Text>
         <Container>
           <Text bold size="25">
-            {cnt + 1}&nbsp;
+            {currentPage}&nbsp;
           </Text>
           <Text bold size="25" color="red" margin="0 20px 0 0">
-            /&nbsp;{Math.ceil(items.length / 3)}
+            /&nbsp;{maxPage}
           </Text>
-          {cnt === 0 ? (
+          {currentPage === 1 ? (
             <Button disabled fontSize="25" margin="0 5px 0 0">
               〈
             </Button>
@@ -117,7 +118,7 @@ function PracticePage() {
               〈
             </Button>
           )}
-          {cnt === 2 ? (
+          {currentPage === maxPage ? (
             <Button disabled fontSize="25">
               〉
             </Button>
@@ -130,7 +131,7 @@ function PracticePage() {
       </Container>
 
       <Container>
-        <ItemList cnt={cnt} />
+        <ItemList drawPage={drawPage} />
       </Container>
     </Container>
   )

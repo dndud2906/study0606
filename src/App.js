@@ -7,19 +7,19 @@ import PracticePage from './pages/practice'
 
 function App() {
   return (
-    // <Router>
-    //   <GlobalStyles />
-    //   <Gnb />
-    //   <Switch>
-    //     <Route path="/" exact component={HomePage} />
-    //     <Route path="/todo" component={TodoPage} />
-    //     <Route path="/signup" component={SignupPage} />
-    //     <Route component={ErrorPage} />
-    //   </Switch>
-    // </Router>
-    <div>
-      <PracticePage />
-    </div>
+    <Router>
+      <GlobalStyles />
+      <Gnb />
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/todo" component={TodoPage} />
+        <Route path="/signup" component={SignupPage} />
+        <Route component={ErrorPage} />
+      </Switch>
+    </Router>
+    // <div>
+    //   <PracticePage />
+    // </div>
   )
 }
 
