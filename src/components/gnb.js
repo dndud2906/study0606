@@ -16,8 +16,8 @@ const LINKS = [
     label: 'signup',
   },
   {
-    path: '/practice',
-    label: 'practice',
+    path: '/slide',
+    label: 'slide',
   },
 ]
 function Gnb() {
