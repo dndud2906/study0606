@@ -51,7 +51,7 @@ function Slide() {
               〈
             </Button>
           )}
-          {page === maxPage ? (
+          {page === maxPage - 1 ? (
             <Button disabled fontSize="25">
               〉
             </Button>
