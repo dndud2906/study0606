@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTodoContext } from './context'
-import { deleteTodo, fetchTodos } from '../../service/todo'
+import { deleteTodo, fetchTodos, updateTodo } from '../../service/todo'
 
 function Body() {
   const { filteredTodos, setTodos } = useTodoContext()
@@ -15,11 +15,17 @@ function Body() {
     }
   }
 
-  const handleUpdateStatus = (todo) => {
+  const handleUpdateStatus = async (todo) => {
     /**
      * 해보기
      */
-    console.log('todo', todo)
+    todo.isDone = !todo.isDone
+    const isChecked = await updateTodo(todo)
+    if (isChecked) {
+      setTodos(await fetchTodos())
+    } else {
+      window.alert('체크 실패!')
+    }
   }
 
   return (

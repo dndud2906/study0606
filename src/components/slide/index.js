@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { ITEMS } from './itemData'
 import Container from '../shared/container'
 import Text from '../shared/text'
 import Button from '../shared/button'
+import { ITEMS } from './itemData'
 
 /**
  * 변하지 않는 값( 한 페이지에 3개의 이미지 나오게!!)

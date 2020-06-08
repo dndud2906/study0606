@@ -1,5 +1,5 @@
 import React from 'react'
-import { createContext, useState, useContext } from 'react'
+import { createContext, useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 
 const Context = createContext()
@@ -22,5 +22,5 @@ export function usePrinterContext() {
 }
 
 PrinterContextProvider.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.array,
 }

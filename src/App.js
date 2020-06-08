@@ -17,9 +17,6 @@ function App() {
         <Route component={ErrorPage} />
       </Switch>
     </Router>
-    // <div>
-    //   <PracticePage />
-    // </div>
   )
 }
 

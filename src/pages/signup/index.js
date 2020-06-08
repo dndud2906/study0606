@@ -6,6 +6,10 @@ import Footer from '../../components/signup/footer'
 import Container from '../../components/shared/container'
 
 function Signup() {
+  /**
+   * users 정보를 body, footer에서 사용해야 하기때문에
+   * 부모 컴포넌트인 Signup 에서 정의.
+   */
   const [users, setUsers] = useState([])
 
   useEffect(() => {

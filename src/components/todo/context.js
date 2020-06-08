@@ -14,11 +14,12 @@ export function TodoContextProvider({ children }) {
 
   useEffect(() => {
     //TODO setFilteredTodos
-    setFilter(mapToFilter(todos, filter))
+    // setFiltered(mapToFilter(todos, filter))
+    setFilteredTodos(mapToFilter(todos, filter))
   }, [todos, filter])
 
   return (
-    <Context.Provider value={{ todos, setTodos, filteredTodos }}>
+    <Context.Provider value={{ todos, setTodos, filteredTodos, setFilter }}>
       {children}
     </Context.Provider>
   )
