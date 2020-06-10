@@ -19,8 +19,8 @@ function Body() {
     /**
      * 해보기
      */
-    todo.isDone = !todo.isDone
-    const isChecked = await updateTodo(todo)
+    const updatedTodo = { ...todo, isDone: !todo.isDone }
+    const isChecked = await updateTodo(updatedTodo)
     if (isChecked) {
       setTodos(await fetchTodos())
     } else {
