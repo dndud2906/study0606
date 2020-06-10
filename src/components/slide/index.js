@@ -25,19 +25,11 @@ function Slide() {
   )
 
   const handleNext = () => {
-    if (page < maxPage - 1) {
-      setPage(page + 1)
-    } else {
-      setPage(0)
-    }
+    page < maxPage - 1 ? setPage(page + 1) : setPage(0)
   }
 
   const handlePrev = () => {
-    if (page > 0) {
-      setPage(page - 1)
-    } else {
-      setPage(maxPage - 1)
-    }
+    page > 0 ? setPage(page - 1) : setPage(maxPage - 1)
   }
 
   return (
