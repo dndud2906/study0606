@@ -25,7 +25,7 @@ function Gnb() {
     <Container>
       {LINKS.map(({ path, label }, idx) => (
         <Link key={idx} to={path}>
-          {label}
+          {label}&nbsp;
         </Link>
       ))}
     </Container>
