@@ -1,44 +1,9 @@
 {
   "todo": [
     {
-      "title": "상태 업데이트",
+      "title": "id몇번?",
       "isDone": false,
-      "id": 2
-    },
-    {
-      "title": "ㅁㄴㅇㅁㄻㄴㅇㅁㄴㄴㅁㅇㄴㅇㅁㅁㄴㅇㄴㅁㅇㄴㅁㅇㄴㅁㅇㄴㅇㅁㄴㅁㅇㅁㄴㅇㄴㅇㅁ",
-      "isDone": false,
-      "id": 5
-    },
-    {
-      "title": "복습!",
-      "isDone": false,
-      "id": 6
-    },
-    {
-      "title": "??",
-      "isDone": true,
-      "id": 7
-    },
-    {
-      "title": "이거까지?",
-      "isDone": false,
-      "id": 8
-    },
-    {
-      "title": "여긴 안돼겠지?",
-      "isDone": false,
-      "id": 9
-    },
-    {
-      "title": "assaddasasddsaasdasddassasaddasasd",
-      "isDone": false,
-      "id": 10
-    },
-    {
-      "title": "asdasd??",
-      "isDone": false,
-      "id": 11
+      "id": 1
     }
   ]
 }

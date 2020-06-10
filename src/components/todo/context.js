@@ -14,7 +14,6 @@ export function TodoContextProvider({ children }) {
 
   useEffect(() => {
     //TODO setFilteredTodos
-    // setFiltered(mapToFilter(todos, filter))
     setFilteredTodos(mapToFilter(todos, filter))
   }, [todos, filter])
 

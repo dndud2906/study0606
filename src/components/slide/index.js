@@ -25,11 +25,19 @@ function Slide() {
   )
 
   const handleNext = () => {
-    setPage(page + 1)
+    if (page < maxPage - 1) {
+      setPage(page + 1)
+    } else {
+      setPage(0)
+    }
   }
 
   const handlePrev = () => {
-    setPage(page - 1)
+    if (page > 0) {
+      setPage(page - 1)
+    } else {
+      setPage(maxPage - 1)
+    }
   }
 
   return (
@@ -42,24 +50,13 @@ function Slide() {
           <Text bold size="25">
             {page + 1}/{maxPage}
           </Text>
-          {page === 0 ? (
-            <Button disabled fontSize="25" margin="0 5px 0 0">
-              〈
-            </Button>
-          ) : (
-            <Button onClick={handlePrev} fontSize="25" margin="0 5px 0 0">
-              〈
-            </Button>
-          )}
-          {page === maxPage - 1 ? (
-            <Button disabled fontSize="25">
-              〉
-            </Button>
-          ) : (
-            <Button onClick={handleNext} fontSize="25">
-              〉
-            </Button>
-          )}
+          <Button onClick={handlePrev} fontSize="25" margin="0 5px 0 0">
+            〈
+          </Button>
+
+          <Button onClick={handleNext} fontSize="25">
+            〉
+          </Button>
         </Container>
       </Container>
 
